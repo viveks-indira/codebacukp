@@ -1,0 +1,124 @@
+2024-10-14 17:43:19,467 [INFO] logging was configured successfully
+2024-10-14 17:43:19,476 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:43:21,536 [INFO] Syncing role definition
+2024-10-14 17:43:21,551 [INFO] Syncing Admin perms
+2024-10-14 17:43:21,556 [INFO] Syncing Alpha perms
+2024-10-14 17:43:21,674 [INFO] Syncing Gamma perms
+2024-10-14 17:43:21,788 [INFO] Syncing sql_lab perms
+2024-10-14 17:43:21,905 [INFO] Fetching a set of all perms to lookup which ones are missing
+2024-10-14 17:43:21,912 [INFO] Creating missing datasource permissions.
+2024-10-14 17:44:32,133 [INFO] logging was configured successfully
+2024-10-14 17:44:32,140 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:44:47,127 [INFO] logging was configured successfully
+2024-10-14 17:44:47,134 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:44:48,867 [INFO] Syncing role definition
+2024-10-14 17:44:48,881 [INFO] Syncing Admin perms
+2024-10-14 17:44:48,886 [INFO] Syncing Alpha perms
+2024-10-14 17:44:48,999 [INFO] Syncing Gamma perms
+2024-10-14 17:44:49,114 [INFO] Syncing sql_lab perms
+2024-10-14 17:44:49,229 [INFO] Fetching a set of all perms to lookup which ones are missing
+2024-10-14 17:44:49,236 [INFO] Creating missing datasource permissions.
+2024-10-14 17:47:36,734 [INFO] logging was configured successfully
+2024-10-14 17:47:36,741 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:47:38,493 [INFO] Syncing role definition
+2024-10-14 17:47:38,507 [INFO] Syncing Admin perms
+2024-10-14 17:47:38,512 [INFO] Syncing Alpha perms
+2024-10-14 17:47:38,627 [INFO] Syncing Gamma perms
+2024-10-14 17:47:38,741 [INFO] Syncing sql_lab perms
+2024-10-14 17:47:38,861 [INFO] Fetching a set of all perms to lookup which ones are missing
+2024-10-14 17:47:38,868 [INFO] Creating missing datasource permissions.
+
+2024-10-14 17:48:53,101 [INFO] logging was configured successfully
+2024-10-14 17:48:53,111 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:49:28,036 [INFO] logging was configured successfully
+2024-10-14 17:49:28,044 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:49:51,991 [INFO] logging was configured successfully
+2024-10-14 17:49:51,998 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:50:19,472 [INFO] logging was configured successfully
+2024-10-14 17:50:19,480 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:50:31,847 [INFO] logging was configured successfully
+2024-10-14 17:50:31,855 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:50:40,475 [INFO] logging was configured successfully
+2024-10-14 17:50:40,482 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:51:50,677 [INFO] logging was configured successfully
+2024-10-14 17:51:50,685 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:52:10,307 [INFO] logging was configured successfully
+2024-10-14 17:52:10,315 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:53:07,332 [INFO] logging was configured successfully
+2024-10-14 17:53:07,339 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 17:53:09,114 [INFO] Syncing role definition
+2024-10-14 17:53:09,129 [INFO] Syncing Admin perms
+2024-10-14 17:53:09,134 [INFO] Syncing Alpha perms
+2024-10-14 17:53:09,254 [INFO] Syncing Gamma perms
+2024-10-14 17:53:09,373 [INFO] Syncing sql_lab perms
+2024-10-14 17:53:09,488 [INFO] Fetching a set of all perms to lookup which ones are missing
+2024-10-14 17:53:09,496 [INFO] Creating missing datasource permissions.
+2024-10-14 17:59:07,812 [INFO] logging was configured successfully
+2024-10-14 17:59:07,813 [ERROR] Failed to create app
+Traceback (most recent call last):
+  File "E:\Superset\apache_project\venv\lib\site-packages\superset\app.py", line 40, in create_app
+    app_initializer.init_app()
+  File "E:\Superset\apache_project\venv\lib\site-packages\superset\initialization\__init__.py", line 478, in init_app
+    self.setup_db()
+  File "E:\Superset\apache_project\venv\lib\site-packages\superset\initialization\__init__.py", line 640, in setup_db
+    pessimistic_connection_handling(db.engine)
+  File "E:\Superset\apache_project\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 998, in engine
+    return self.get_engine()
+  File "E:\Superset\apache_project\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "E:\Superset\apache_project\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 594, in get_engine
+    self._engine = rv = self._sa.create_engine(sa_url, options)
+  File "E:\Superset\apache_project\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 1027, in create_engine
+    return sqlalchemy.create_engine(sa_url, **engine_opts)
+  File "<string>", line 2, in create_engine
+  File "E:\Superset\apache_project\venv\lib\site-packages\sqlalchemy\util\deprecations.py", line 375, in warned
+    return fn(*args, **kwargs)
+  File "E:\Superset\apache_project\venv\lib\site-packages\sqlalchemy\engine\create.py", line 544, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "E:\Superset\apache_project\venv\lib\site-packages\sqlalchemy\connectors\pyodbc.py", line 43, in dbapi
+    return __import__("pyodbc")
+ModuleNotFoundError: No module named 'pyodbc'
+2024-10-14 17:59:27,533 [INFO] logging was configured successfully
+2024-10-14 17:59:27,573 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:00:45,035 [INFO] logging was configured successfully
+2024-10-14 18:00:45,048 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:01:37,546 [INFO] logging was configured successfully
+2024-10-14 18:01:37,560 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:02:17,512 [INFO] logging was configured successfully
+2024-10-14 18:02:17,524 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:02:48,794 [INFO] logging was configured successfully
+2024-10-14 18:02:48,805 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:04:27,945 [INFO] logging was configured successfully
+2024-10-14 18:04:27,961 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:06:08,645 [INFO] logging was configured successfully
+2024-10-14 18:06:08,657 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:06:52,449 [INFO] logging was configured successfully
+2024-10-14 18:06:52,462 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:07:35,269 [INFO] logging was configured successfully
+2024-10-14 18:07:35,282 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:08:12,763 [INFO] logging was configured successfully
+2024-10-14 18:08:12,788 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:09:52,167 [INFO] logging was configured successfully
+2024-10-14 18:09:52,179 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:12:24,946 [INFO] logging was configured successfully
+2024-10-14 18:12:24,971 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:14:59,880 [INFO] logging was configured successfully
+2024-10-14 18:14:59,895 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:23:10,349 [INFO] logging was configured successfully
+2024-10-14 18:23:10,360 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:24:04,664 [INFO] logging was configured successfully
+2024-10-14 18:24:04,676 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:24:47,633 [INFO] logging was configured successfully
+2024-10-14 18:24:47,644 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:26:37,608 [INFO] logging was configured successfully
+2024-10-14 18:26:37,621 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:28:23,229 [INFO] logging was configured successfully
+2024-10-14 18:28:23,241 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:28:51,600 [INFO] logging was configured successfully
+2024-10-14 18:28:51,612 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:29:47,713 [INFO] logging was configured successfully
+2024-10-14 18:29:47,726 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-10-14 18:30:27,134 [INFO] logging was configured successfully
+2024-10-14 18:30:27,145 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>
+2024-11-06 10:00:04,683 [INFO] logging was configured successfully
+2024-11-06 10:00:04,736 [INFO] Configured event logger of type <class 'superset.utils.log.DBEventLogger'>

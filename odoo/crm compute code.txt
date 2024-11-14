@@ -1,0 +1,50 @@
+#Days clilent has not traded
+for record in self:
+    last_trade_date = record.x_studio_last_trade_date_1.strftime("%Y-%m-%d")
+
+    current_date_str = time.strftime("%Y-%m-%d")
+
+    current_year, current_month, current_day = map(int, current_date_str.split('-'))
+    last_trade_year, last_trade_month, last_trade_day = map(int, last_trade_date.split('-'))
+
+    current_days = (current_year * 365) + (current_month * 30) + current_day
+    last_trade_days = (last_trade_year * 365) + (last_trade_month * 30) + last_trade_day
+
+    difference_of_days = current_days - last_trade_days
+
+    record['x_studio_days_client_has_not_traded'] = difference_of_days
+
+
+
+#Next Reminder Date
+for record in self:
+    days_to_increase = record.x_studio_snooze_use_for
+    days_to_increase = days_to_increase.split(' ')
+    
+    # Get the current date as strings in the correct format
+    current_date = time.strftime("%Y-%m-%d").split('-')
+    year = int(current_date[0])
+    month = int(current_date[1])
+    day = int(current_date[2])
+    
+    if days_to_increase[1] == 'Months':
+        # If months, add days_to_increase[0] * 30 to the current date
+        days = int(days_to_increase[0]) * 30
+    else:
+        # If days, just add days_to_increase[0] to the current date
+        days = int(days_to_increase[0])
+    
+    # Manually add days to the current date
+    day += days
+    
+    # Handle overflow for months and years manually
+    while day > 30:
+        day -= 30
+        month += 1
+        if month > 12:
+            month = 1
+            year += 1
+    
+    # Format and assign the new date in '%Y-%m-%d' format
+    new_date = "{:04d}-{:02d}-{:02d}".format(year, month, day)
+    record['x_studio_next_reminder_date'] = new_date

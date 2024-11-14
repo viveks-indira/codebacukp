@@ -1,0 +1,15 @@
+1. python -m venv venv
+2. activate venv
+3. pip install apache-superset
+4. pip install Pillow  
+5. if needed  python.exe -m pip install --upgrade pip
+6. superset db upgrade or  flask --app superset db upgrade
+7. python -c "import secrets; print(secrets.token_urlsafe(42))" (generate key)
+8. Create superset_config.py and create SECRET_KEY variable and paste key (generated above)
+9. $env:SUPERSET_CONFIG_PATH = "C:\Users\freedom\PycharmProjects\apachesuperset\superset_config.py"
+10. echo $env:SUPERSET_CONFIG_PATH  (check path)
+11. flask --app superset db upgrade
+12. $env:FLASK_APP = "superset"
+13.  superset fab create-admin --username admin --firstname Admin --lastname Sondhiya --email admin@gmail.com --password admin  
+14. superset init
+15. superset run -p 8088 --with-threads --reload --debugger

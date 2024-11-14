@@ -1,0 +1,294 @@
+# Get the list of specific users to send notifications to
+specific_users = [2]
+
+# Loop through specific_users one by one
+for user_id in specific_users:
+    # Calculate overdue leads for the current user
+    individual_due_leads = env['crm.lead'].search_count([
+        ('user_id', '=', user_id),  # Filter leads assigned to the current user
+        ('activity_state', '=', 'overdue')  # Check for overdue leads
+    ])
+    
+    # Send individual notification for the user's own overdue leads
+    if individual_due_leads > 0:
+        individual_message = f"This is a reminder for your due activities! You have {individual_due_leads} lead(s) that are overdue."
+        try:
+            env['bus.bus']._sendone(
+                env['res.users'].browse(user_id).partner_id,
+                "simple_notification",
+                {
+                    "title": "Due Activities Notification",
+                    "message": individual_message,
+                    "sticky": True
+                }
+            )
+            _logger.info(f"Individual notification sent to User {user_id}: {individual_message}")
+        except Exception as e:
+            _logger.info(f"Failed to send individual notification to User {user_id}: {e}")
+
+    # After sending the individual notification, calculate the total overdue leads and users with overdue leads
+    all_overdue_leads = env['crm.lead'].search_count([
+        ('activity_state', '=', 'overdue')  # Filter for all overdue leads, across all users
+    ])
+    
+    # Fetch the number of users who have overdue leads
+    users_with_overdue_leads = env['crm.lead'].read_group(
+        [('activity_state', '=', 'overdue')],  # Group by users who have overdue leads
+        ['user_id'],  # Group by user_id
+        ['user_id']
+    )
+    count_users_with_overdue_leads = len(users_with_overdue_leads)  # Count of users with overdue leads
+
+    # Prepare the consolidated message
+    if all_overdue_leads > 0:
+        consolidated_message = (f"There are a total of {all_overdue_leads} overdue lead(s) across "
+                                f"{count_users_with_overdue_leads} user(s) who have overdue activities.")
+    else:
+        consolidated_message = "Good job! There are no overdue activities from all users."
+
+    # Send the consolidated notification to the current user
+    try:
+        env['bus.bus']._sendone(
+            env['res.users'].browse(user_id).partner_id,
+            "simple_notification",
+            {
+                "title": "Total Overdue Activities Notification",
+                "message": consolidated_message,
+                "sticky": True
+            }
+        )
+        _logger.info(f"Consolidated notification sent to User {user_id}: {consolidated_message}")
+    except Exception as e:
+        _logger.info(f"Failed to send consolidated notification to User {user_id}: {e}")
+
+# Process completion log
+_logger.info("Notification process completed.")
+
+
+
+
+
+# # Get the list of specific users to send notifications to
+# specific_users = [2, 257, 42]
+
+# # Initialize counters and sets
+# total_overdue_leads = 0
+# users_with_overdue_leads = set()  # Set to store users with overdue leads
+# total_users_with_overdue = 0
+
+# # Iterate over all users in the system and check if they have overdue leads
+# all_users = env['res.users'].search([])  # Search for all users in the system
+# for user in all_users:
+#     overdue_leads_for_user = env['crm.lead'].search_count([
+#         ('user_id', '=', user.id),  # Filter leads assigned to the current user
+#         ('activity_state', '=', 'overdue')  # Check for overdue leads
+#     ])
+    
+#     if overdue_leads_for_user > 0:
+#         total_overdue_leads += overdue_leads_for_user  # Increment total overdue leads
+#         users_with_overdue_leads.add(user.id)  # Add user to the set of users with overdue leads
+#         total_users_with_overdue += 1  # Increment the count of users with overdue leads
+
+# # Now send notifications to specific users
+# for user_id in specific_users:
+#     # Search for overdue leads for the specific user
+#     due_leads = env['crm.lead'].search_count([
+#         ('user_id', '=', user_id),
+#         ('activity_state', '=', 'overdue')
+#     ])
+    
+#     _logger.info(f"User {user_id} overdue leads count: {due_leads}")
+    
+#     if due_leads > 0:
+#         # Prepare and send individual notification to the user
+#         individual_message = f"This is a reminder for your due activities! You have {due_leads} lead(s) that are overdue."
+#         try:
+#             env['bus.bus']._sendone(
+#                 env['res.users'].browse(user_id).partner_id,
+#                 "simple_notification",
+#                 {
+#                     "title": "Due Activities Notification",
+#                     "message": individual_message,
+#                     "sticky": True
+#                 }
+#             )
+#             _logger.info(f"Notification sent to User {user_id}: {individual_message}")
+#         except Exception as e:
+#             _logger.info(f"Failed to send individual notification to User {user_id}: {e}")
+
+# # Create a consolidated notification message for the admin (or specific users) with the count of users having overdue leads
+# consolidated_message = f"There are a total of {total_overdue_leads} overdue lead(s) across {total_users_with_overdue} user(s) who have overdue activities."
+
+# # Send the consolidated notification to both the admin and the specific users
+# for user_id in specific_users:
+#     try:
+#         env['bus.bus']._sendone(
+#             env['res.users'].browse(user_id).partner_id,
+#             "simple_notification",
+#             {
+#                 "title": "Total Overdue Activities Notification",
+#                 "message": consolidated_message,
+#                 "sticky": True
+#             }
+#         )
+#         _logger.info(f"Consolidated notification sent to User {user_id}: {consolidated_message}")
+#     except Exception as e:
+#         _logger.info(f"Failed to send consolidated notification to User {user_id}: {e}")
+
+# # Also send the consolidated notification to the admin
+# try:
+#     env['bus.bus']._sendone(
+#         env.user.partner_id,
+#         "simple_notification",
+#         {
+#             "title": "Total Overdue Activities Notification",
+#             "message": consolidated_message,
+#             "sticky": True
+#         }
+#     )
+#     _logger.info(f"Consolidated notification sent to Admin: {consolidated_message}")
+# except Exception as e:
+#     _logger.info(f"Failed to send consolidated notification to Admin: {e}")
+
+# _logger.info("Notification process completed.")
+
+
+# working now admin
+
+# # Get the list of specific users to send notifications to
+# specific_users = [2, 257, 42]
+
+# # Initialize counters and sets
+# total_overdue_leads = 0
+# users_with_overdue_leads = set()  # Set to store users with overdue leads
+# total_users_with_overdue = 0
+
+# # Iterate over all users in the system and check if they have overdue leads
+# all_users = env['res.users'].search([])  # Search for all users in the system
+# for user in all_users:
+#     overdue_leads_for_user = env['crm.lead'].search_count([
+#         ('user_id', '=', user.id),  # Filter leads assigned to the current user
+#         ('activity_state', '=', 'overdue')  # Check for overdue leads
+#     ])
+    
+#     if overdue_leads_for_user > 0:
+#         total_overdue_leads += overdue_leads_for_user  # Increment total overdue leads
+#         users_with_overdue_leads.add(user.id)  # Add user to the set of users with overdue leads
+#         total_users_with_overdue += 1  # Increment the count of users with overdue leads
+
+# # Now send notifications to specific users
+# for user_id in specific_users:
+#     # Search for overdue leads for the specific user
+#     due_leads = env['crm.lead'].search_count([
+#         ('user_id', '=', user_id),
+#         ('activity_state', '=', 'overdue')
+#     ])
+    
+#     _logger.info(f"User {user_id} overdue leads count: {due_leads}")
+    
+#     if due_leads > 0:
+#         # Prepare and send individual notification to the user
+#         message = f"This is a reminder for your due activities! You have {due_leads} lead(s) that are overdue."
+#         try:
+#             env['bus.bus']._sendone(
+#                 env['res.users'].browse(user_id).partner_id,
+#                 "simple_notification",
+#                 {
+#                     "title": "Due Activities Notification",
+#                     "message": message,
+#                     "sticky": True
+#                 }
+#             )
+#             _logger.info(f"Notification sent to User {user_id}: {message}")
+#         except Exception as e:
+#             _logger.info(f"Failed to send notification to User {user_id}: {e}")
+
+# # Create a consolidated notification message for the admin with the count of users having overdue leads
+# admin_message = f"There are a total of {total_overdue_leads} overdue lead(s) across {total_users_with_overdue} user(s) who have overdue activities."
+
+# # Send the consolidated notification to the admin
+# try:
+#     env['bus.bus']._sendone(
+#         env.user.partner_id,
+#         "simple_notification",
+#         {
+#             "title": "Total Overdue Activities Notification",
+#             "message": admin_message,
+#             "sticky": True
+#         }
+#     )
+#     _logger.info(f"Consolidated notification sent to Admin: {admin_message}")
+# except Exception as e:
+#     _logger.info(f"Failed to send consolidated notification to Admin: {e}")
+
+# _logger.info("Notification process completed.")
+
+ 
+
+
+ 
+# date = time
+# today = date.strftime('%m-%d-%Y')
+# def popup_Notification():
+#     # _logger.info("Popup notification triggered!")
+    
+#      # Initialize counters
+#     total_overdue_leads = 0
+#     users_with_due_leads = set()
+
+#     # Get all users
+#     users = env['res.users'].search([])
+
+#     for user in users:
+#         # Search for leads assigned to the current user that are overdue
+#         due_leads = env['crm.lead'].search_count([
+#             ('user_id', '=', user.id),
+#             ('activity_date_deadline', '<=', time.strftime('%Y-%m-%d')),  # Assuming 'activity_date_deadline' is the field for due date
+#             ('activity_state', '=', 'overdue')  # Adjust based on your field for overdue state
+
+
+
+#
+
+#         # If the user has overdue leads, update counters
+#         if due_leads > 0:
+#             users_with_due_leads.add(user.id)  # Add user ID to the set
+#             total_overdue_leads += due_leads  # Increment total overdue leads
+
+#             # Prepare and send individual notification to the user
+#             message = f"This is a reminder for your due activities! You have {due_leads} lead(s) that are overdue."
+#             # env['bus.bus']._sendone(
+#             #     user.partner_id,
+#             #     "simple_notification",
+#             #     {
+#             #         "title": "Due Activities Notification",
+#             #         "message": message,
+#             #         "sticky": False  # Keeps the popup visible until dismissed
+#             #     }
+#             # )
+
+#     # Counts
+#     count_users_with_due_leads = len(users_with_due_leads)
+
+#     # Create a consolidated notification message
+#     if total_overdue_leads > 0:
+#         message = (
+#             f"There are a total of {total_overdue_leads} overdue lead(s) across {count_users_with_due_leads} user(s)."
+#         )
+#     else:
+#         message = "Good job! There are no overdue activities across all users."
+
+#     # Send the consolidated notification to the current user
+#     env['bus.bus']._sendone(
+#         env.user.partner_id,
+#         "simple_notification",
+#         {
+#             "title": "Total Overdue Activities Notification",
+#             "message": message,
+#             "sticky": True
+#         }
+#     )
+     
+#     return True
+
+# popup_Notification()

@@ -1,0 +1,62 @@
+# Days client has not traded(oct 22)
+for record in self:
+    last_trade_date = record.x_studio_last_trade_date_1
+
+    if last_trade_date:  # Check if last_trade_date is not False or None
+        last_trade_date_str = last_trade_date.strftime("%Y-%m-%d")
+
+        current_date_str = time.strftime("%Y-%m-%d")
+
+        current_year, current_month, current_day = map(int, current_date_str.split('-'))
+        last_trade_year, last_trade_month, last_trade_day = map(int, last_trade_date_str.split('-'))
+
+        current_days = (current_year * 365) + (current_month * 30) + current_day
+        last_trade_days = (last_trade_year * 365) + (last_trade_month * 30) + last_trade_day
+
+        difference_of_days = current_days - last_trade_days
+    else:
+        # If no last_trade_date, set the difference to a default value, e.g., 0
+        difference_of_days = 0
+
+    record['x_studio_days_clients_has_not_traded'] = difference_of_days
+
+
+
+#Next Reminder
+for record in self:
+    days_to_increase = record.x_studio_snooze_user_for
+    
+    # Ensure that days_to_increase is a valid string and can be split
+    if isinstance(days_to_increase, str) and ' ' in days_to_increase:
+        days_to_increase = days_to_increase.split(' ')
+        
+        # Get the current date as strings in the correct format
+        current_date = time.strftime("%Y-%m-%d").split('-')
+        year = int(current_date[0])
+        month = int(current_date[1])
+        day = int(current_date[2])
+
+        if days_to_increase[1] == 'Months':
+            # If months, add days_to_increase[0] * 30 to the current date
+            days = int(days_to_increase[0]) * 30
+        else:
+            # If days, just add days_to_increase[0] to the current date
+            days = int(days_to_increase[0])
+
+        # Manually add days to the current date
+        day += days
+
+        # Handle overflow for months and years manually
+        while day > 30:
+            day -= 30
+            month += 1
+            if month > 12:
+                month = 1
+                year += 1
+
+        # Format and assign the new date in '%Y-%m-%d' format
+        new_date = "{:04d}-{:02d}-{:02d}".format(year, month, day)
+        record['x_studio_next_reminder_date'] = new_date
+    else:
+        # Handle cases where days_to_increase is not valid
+        record['x_studio_next_reminder_date'] = time.strftime("%Y-%m-%d")

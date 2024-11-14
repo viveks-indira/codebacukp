@@ -1,0 +1,188 @@
+#Compliance : Set Reminder
+# date = time
+# date = date.strftime('%m-%d-%Y')
+
+# # Split the date into components manually
+# month = int(date[0:2])  # Extract month
+# day = int(date[3:5])    # Extract day
+# year = int(date[6:10])  # Extract year
+
+# # Define days in each month
+# days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+# # Handle leap year for February
+# if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+#     days_in_month[1] = 29
+
+# # Calculate today's date
+# today = f"{month:02}-{day:02}-{year}"
+
+# # Calculate tomorrow's date
+# day += 1
+# if day > days_in_month[month - 1]:
+#     day = 1
+#     month += 1
+
+# if month > 12:
+#     month = 1
+#     year += 1
+
+# tomorrow = f"{month:02}-{day:02}-{year}"
+
+# # Calculate day after tomorrow's date
+# day += 1
+# if day > days_in_month[month - 1]:
+#     day = 1
+#     month += 1
+
+# if month > 12:
+#     month = 1
+#     year += 1
+
+# day_after_tomorrow = f"{month:02}-{day:02}-{year}"
+
+# # Calculate yesterday's date
+# # Reset month, day, and year for yesterday calculation
+# month, day, year = int(date[0:2]), int(date[3:5]), int(date[6:10])
+
+# day -= 1
+# if day < 1:
+#     month -= 1
+#     if month < 1:
+#         month = 12
+#         year -= 1
+#     day = days_in_month[month - 1]
+#     # Handle leap year for February
+#     if month == 2 and ((year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)):
+#         day = 29
+
+# yesterday = f"{month:02}-{day:02}-{year}"
+
+
+# # Get records
+# records = env['x_compliance_dashboard'].search([])
+
+# # Iterate through each record
+# for record in records:
+#     due_date = record.x_studio_task_due_date.strftime('%m-%d-%Y')  # Access the actual record attribute
+
+#     # Check if due_date is not False
+#     if due_date:
+#         # Check the due date and send emails based on the conditions
+#         if due_date == today:
+#             template_id = 94  # Email template for today
+#             record.message_post(body="Remainder sent for today's due date.")
+#         elif due_date == tomorrow:
+#             template_id = 93  # Email template for tomorrow
+#             record.message_post(body="Remainder sent for tomorrow's due date.")
+#         elif due_date == day_after_tomorrow:
+#             template_id = 92  # Email template for day after tomorrow
+#             record.message_post(body="Remainder sent for the day after tomorrow's due date.")
+#         elif due_date == yesterday:
+#             template_id = 97  # Email template for day after tomorrow
+#             record.message_post(body="Remainder sent for task not completed on due date.")
+#         else:
+#             continue  # Skip if none of the conditions are met
+
+#         # Sending email using the selected template ID
+#         template = env['mail.template'].browse(template_id)
+
+#         if template:
+#             template.send_mail(record.id, force_send=True)
+
+
+
+
+
+#-------------------------------------------------------------------------
+
+date = time
+date = date.strftime('%m-%d-%Y')
+
+# Split the date into components manually
+month = int(date[0:2])  # Extract month
+day = int(date[3:5])    # Extract day
+year = int(date[6:10])  # Extract year
+
+# Define days in each month
+days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+# Handle leap year for February
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    days_in_month[1] = 29
+
+# Calculate today's date
+today = f"{month:02}-{day:02}-{year}"
+
+# Calculate tomorrow's date
+day += 1
+if day > days_in_month[month - 1]:
+    day = 1
+    month += 1
+
+if month > 12:
+    month = 1
+    year += 1
+
+tomorrow = f"{month:02}-{day:02}-{year}"
+
+# Calculate day after tomorrow's date
+day += 1
+if day > days_in_month[month - 1]:
+    day = 1
+    month += 1
+
+if month > 12:
+    month = 1
+    year += 1
+
+day_after_tomorrow = f"{month:02}-{day:02}-{year}"
+
+# Calculate yesterday's date
+# Reset month, day, and year for yesterday calculation
+month, day, year = int(date[0:2]), int(date[3:5]), int(date[6:10])
+
+day -= 1
+if day < 1:
+    month -= 1
+    if month < 1:
+        month = 12
+        year -= 1
+    day = days_in_month[month - 1]
+    # Handle leap year for February
+    if month == 2 and ((year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)):
+        day = 29
+
+yesterday = f"{month:02}-{day:02}-{year}"
+
+
+# Get records
+records = env['x_compliance_dashboard'].search([])
+
+# Iterate through each record
+for record in records:
+    due_date = record.x_studio_task_due_date.strftime('%m-%d-%Y')  # Access the actual record attribute
+
+    # Check if due_date is not False
+    if due_date:
+        # Check the due date and send emails based on the conditions
+        if due_date == today:
+            template_id = 94  # Email template for today
+            record.message_post(body="Remainder sent for today's due date.")
+        elif due_date == tomorrow:
+            template_id = 93  # Email template for tomorrow
+            record.message_post(body="Remainder sent for tomorrow's due date.")
+        elif due_date == day_after_tomorrow:
+            template_id = 92  # Email template for day after tomorrow
+            record.message_post(body="Remainder sent for the day after tomorrow's due date.")
+        elif due_date == yesterday:
+            template_id = 97  # Email template for day after tomorrow
+            record.message_post(body="Remainder sent for task not completed on due date.")
+        else:
+            continue  # Skip if none of the conditions are met
+
+        # Sending email using the selected template ID
+        template = env['mail.template'].browse(template_id)
+
+        if template:
+            template.send_mail(record.id, force_send=True)

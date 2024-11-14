@@ -1,0 +1,4 @@
+softphone.go2market.in
+
+wss://softphone.go2market.in:8089/ws /50660
+production

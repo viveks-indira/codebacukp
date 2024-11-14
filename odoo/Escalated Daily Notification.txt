@@ -1,0 +1,228 @@
+#Escalated Daily Notification
+# Get the list of users
+users = env['res.users'].search([])
+
+for user in users:
+    # Check the number of due leads for the current user
+    due_leads_count = env['crm.lead'].search_count([
+        ('user_id', '=', user.id),
+        ('activity_state', '=', 'overdue')
+    ])
+
+    # Prepare the message based on the number of due leads
+    if due_leads_count > 0:
+        message = f"This is a reminder for your due activities! You have {due_leads_count} lead(s) that are overdue."
+    else:
+        message = "Good job! You have no overdue activities."
+
+    # Send the popup notification to the specific user
+    env['bus.bus']._sendone(
+        user.partner_id,
+        "simple_notification",
+        {
+            "title": "Due Activities Notification",
+            "message": message,
+            "sticky": True  # Popup will disappear after a few seconds
+        }
+    )
+
+
+# date = time
+# today = date.strftime('%m-%d-%Y')
+
+# def popup_Notification():
+#     _logger.info(f"Popup notification triggered for user: {user.name}")
+
+#     # Search for leads assigned to the current user that are due
+#     due_leads = env['crm.lead'].search_count([
+#         ('user_id', '=', user.id),
+#         ('activity_state', '=', 'overdue')  # Field/state for overdue
+#     ])
+    
+#     # Message based on the number of due leads
+#     if due_leads > 0:
+#         message = f"This is a reminder for your due activities! You have {due_leads} lead(s) that are overdue."
+#     else:
+#         message = "Good job! You have no overdue activities."
+
+#     # Send the popup notification to the specific user
+#     env['bus.bus']._sendone(
+#         user.partner_id,
+#         "simple_notification",
+#         {
+#             "title": "Due Activities Notification",
+#             "message": message,
+#             "sticky": True  # Popup will disappear after a few seconds
+#         }
+#     )
+
+#     return True
+
+# # Trigger notification for the current user
+# popup_Notification()
+
+
+
+# date = time
+# today = date.strftime('%m-%d-%Y')
+# def popup_Notification():
+#     _logger.info("Popup notification triggered!")
+    
+#     # Search for leads assigned to the current user that are due (e.g., where 'date_deadline' is in the past)
+#     due_leads = env['crm.lead'].search_count([
+#         ('user_id', '=', env.user.id),
+#         ('activity_date_deadline', '<=', today),  # Assuming 'activity_date_deadline' is the field for due date
+#         ('activity_state', '=', 'overdue')  # Or whatever field/state indicates that the lead's activity is overdue
+#     ])
+    
+#     # Message based on the number of due leads
+#     if due_leads > 0:
+#         message = f"This is a reminder for your due activities! You have {due_leads} lead(s) that are overdue."
+#     else:
+#         message = "Good job! You have no overdue activities."
+
+#     # Send the popup notification
+#     env['bus.bus']._sendone(
+#         env.user.partner_id,
+#         "simple_notification",
+#         {
+#             "title": "Due Activities Notification",
+#             "message": message,
+#             "sticky": False  # Keeps the popup visible until dismissed
+#         }
+#     )
+   
+     
+#     return True
+
+# popup_Notification()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# date = time
+# today = date.strftime('%m-%d-%Y')
+# def popup_Notification():
+#     _logger.info("Popup notification triggered!")
+    
+#     # Search for leads assigned to the current user that are overdue
+#     overdue_leads = env['crm.lead'].search([
+#         ('user_id', '=', env.user.id),
+#         ('activity_date_deadline', '<=', today),
+#         ('activity_state', '=', 'overdue')
+#     ])
+    
+#     # Count of overdue leads
+#     overdue_count = len(overdue_leads)
+#     # Create a URL for the action
+#     # action_url = f"web?debug=1#action=722&model=crm.lead&view_type=list&cids=1&menu_id=481"
+#     # Message for overdue leads
+#     if overdue_count > 0:
+#         message = (f"You have {overdue_count} overdue lead(s). ")
+#                 #   f'<a href="{action_url}" target="_blank">Click here to view them.</a>')  # Ensuring link is clickable
+#     else:
+#         message = "Good job! You have no overdue activities."
+    
+#     # # Action to open the list view of overdue leads
+#     # action = {
+#     #     'type': 'ir.actions.act_window',
+#     #     'name': 'Overdue Leads',
+#     #     'res_model': 'crm.lead',
+#     #     'view_mode': 'tree,form',
+#     #     'domain': [('id', 'in', overdue_leads.ids)],  # Show only the overdue leads
+#     #     'target': 'current',  # Open in the current window
+#     # }
+    
+#     # Send the clickable popup notification
+#     env['bus.bus']._sendone(
+#         env.user.partner_id,
+#         "simple_notification",
+#         {
+#             "title": "Due Activities Notification",
+#             "message": message,
+#             "sticky": True,  # Keeps the popup visible until dismissed
+#         }
+#     )
+    
+#     return True
+
+# popup_Notification()
+
+ 
+ 
+
+
+
+# #.........working for ISPL
+
+
+
+# def popup_Notification():
+#     _logger.info("Popup notification triggered!")
+
+#     # Count total leads assigned to the current user
+#     total_leads = env['crm.lead'].search_count([('user_id', '=', env.user.id)])
+
+#     # Count total leads due today
+#     date = time
+#     today = date.strftime('%m-%d-%Y')
+#     # Count total overdue leads based on activity_state
+#     total_overdue = env['crm.lead'].search_count([
+#         ('user_id', '=', env.user.id),
+#         ('activity_state', '=', 'overdue')  # Filter for overdue leads
+#     ])
+
+#     # Create the notification message with the lead and due count
+#     message = (
+#         f"This is a reminder for your due activities! "
+#         f"and {total_overdue} lead(s) are due today."
+#     )
+    
+#     env['bus.bus']._sendone(
+#         env.user.partner_id,
+#         "simple_notification",
+#         {
+#             "title": "Due Activities Notification",
+#             "message": message,
+#             "sticky": True
+#         }
+#     )
+#     return True
+
+# popup_Notification()
+# _logger.info("Scheduled job completed.")
+
+
+#..................working ..............
+
+
+# def popup_Notification():
+#     _logger.info("Popup notification triggered !")
+#     # Count total leads assigned to the current user
+#     total_leads = env['crm.lead'].search_count([('user_id', '=', env.user.id)])
+#     message = f"This is a reminder for your due activities! You have {total_leads} lead(s) assigned to you."
+#     env['bus.bus']._sendone(
+#         env.user.partner_id,
+#         "simple_notification",
+#         {
+#             "title": "Due Activities Notification",
+#             "message": message,
+#             "sticky": True
+#         }
+#     )
+#     return True
+# popup_Notification()
+
+# _logger.info("Scheduled job completed.")

@@ -1,0 +1,528 @@
+2024-09-12 05:58:38,464 11184 INFO ? odoo: Odoo version 17.0 
+2024-09-12 05:58:38,465 11184 INFO ? odoo: Using configuration file at E:\pycharm\custom\odoo\odoo.conf 
+2024-09-12 05:58:38,465 11184 INFO ? odoo: addons paths: ['E:\\pycharm\\custom\\odoo\\odoo\\addons', 'c:\\users\\freedom\\appdata\\local\\openerp s.a\\odoo\\addons\\17.0', 'e:\\pycharm\\custom\\odoo\\addons', 'e:\\pycharm\\custom\\odoo\\odoo\\addons'] 
+2024-09-12 05:58:38,465 11184 INFO ? odoo: database: odoo@localhost:5432 
+2024-09-12 05:58:38,587 11184 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2024-09-12 05:58:38,852 11184 INFO ? odoo.service.server: HTTP service (werkzeug) running on Viveks-PC-377:8069 
+2024-09-12 05:58:44,751 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:44] "GET / HTTP/1.1" 303 - 1 0.014 0.071
+2024-09-12 05:58:44,991 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:44] "GET /web HTTP/1.1" 303 - 2 0.025 0.119
+2024-09-12 05:58:46,285 11184 INFO ? odoo.sql_db: ConnectionPool(used=2/count=3/max=64): Closed 1 connections to 'user=odoo password=xxx dbname=odoo host=localhost port=5432 application_name=odoo-11184 sslmode=prefer' 
+2024-09-12 05:58:46,316 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:46] "GET /web/database/selector HTTP/1.1" 200 - 5 0.128 1.191
+2024-09-12 05:58:47,016 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/lib/bootstrap/js/dist/dom/manipulator.js HTTP/1.1" 200 - 1 0.016 0.345
+2024-09-12 05:58:47,016 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/lib/bootstrap/js/dist/dom/data.js HTTP/1.1" 200 - 1 0.017 0.345
+2024-09-12 05:58:47,017 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/lib/bootstrap/dist/css/bootstrap.css HTTP/1.1" 200 - 1 0.020 0.345
+2024-09-12 05:58:47,023 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/src/libs/fontawesome/css/font-awesome.css HTTP/1.1" 200 - 1 0.017 0.370
+2024-09-12 05:58:47,023 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/lib/bootstrap/js/dist/dom/event-handler.js HTTP/1.1" 200 - 1 0.016 0.353
+2024-09-12 05:58:47,042 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/lib/bootstrap/js/dist/dom/selector-engine.js HTTP/1.1" 200 - 1 0.029 0.359
+2024-09-12 05:58:47,521 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/lib/bootstrap/js/dist/modal.js HTTP/1.1" 200 - 1 0.015 0.166
+2024-09-12 05:58:47,583 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/lib/bootstrap/js/dist/base-component.js HTTP/1.1" 200 - 1 0.019 0.225
+2024-09-12 05:58:47,584 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/src/public/database_manager.js HTTP/1.1" 200 - 1 0.020 0.210
+2024-09-12 05:58:47,603 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:47] "GET /web/static/img/logo2.png HTTP/1.1" 200 - 1 0.021 0.150
+2024-09-12 05:58:48,002 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:48] "GET /web/static/src/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 - 1 0.013 0.058
+2024-09-12 05:58:48,271 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:48] "GET /web/static/img/favicon.ico HTTP/1.1" 200 - 1 0.012 0.065
+2024-09-12 05:58:59,377 11184 INFO ? werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:59] "GET /web?db=odoo HTTP/1.1" 302 - 1 0.012 0.058
+2024-09-12 05:58:59,737 11184 ERROR ? odoo.modules.loading: Database odoo not initialized, you can force it with `-i base` 
+2024-09-12 05:58:59,738 11184 INFO ? odoo.modules.registry: Registry loaded in 0.116s 
+2024-09-12 05:58:59,738 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:58:59,740 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:58:59] "GET /web?db=odoo HTTP/1.1" 500 - 7 0.057 0.065
+2024-09-12 05:59:00,072 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:00,073 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:00] "GET /favicon.ico HTTP/1.1" 500 - 1 0.000 0.003
+2024-09-12 05:59:04,526 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:04,526 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:04] "GET /web?db=post_gre HTTP/1.1" 500 - 1 0.000 0.003
+2024-09-12 05:59:04,840 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:04,841 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:04] "GET /favicon.ico HTTP/1.1" 500 - 1 0.000 0.003
+2024-09-12 05:59:15,372 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:15,372 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:15] "GET / HTTP/1.1" 500 - 1 0.001 0.001
+2024-09-12 05:59:15,400 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:15,401 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:15] "GET /favicon.ico HTTP/1.1" 500 - 1 0.000 0.006
+2024-09-12 05:59:16,937 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:16,938 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:16] "GET / HTTP/1.1" 500 - 1 0.000 0.003
+2024-09-12 05:59:17,239 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:17,240 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:17] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.003
+2024-09-12 05:59:17,830 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:17,831 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:17] "GET / HTTP/1.1" 500 - 1 0.002 0.002
+2024-09-12 05:59:17,850 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:17,851 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:17] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.004
+2024-09-12 05:59:21,552 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:21,553 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:21] "GET /web/database/selector HTTP/1.1" 500 - 1 0.001 0.002
+2024-09-12 05:59:21,864 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:21,865 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:21] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.003
+2024-09-12 05:59:24,601 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:24,601 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:24] "GET /web/database/selector HTTP/1.1" 500 - 1 0.000 0.003
+2024-09-12 05:59:24,628 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:24,628 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:24] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.002
+2024-09-12 05:59:38,911 11184 ERROR odoo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2024-09-12 05:59:38,911 11184 WARNING odoo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database odoo. 
+2024-09-12 05:59:39,986 11184 ERROR odoo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2024-09-12 05:59:39,986 11184 WARNING odoo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database odoo. 
+2024-09-12 05:59:45,786 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:45,787 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:45] "GET /web/database/selector HTTP/1.1" 500 - 1 0.000 0.003
+2024-09-12 05:59:46,094 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:46,094 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:46] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.001
+2024-09-12 05:59:49,895 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:49,897 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:49] "GET / HTTP/1.1" 500 - 1 0.001 0.003
+2024-09-12 05:59:49,922 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:49,923 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:49] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.003
+2024-09-12 05:59:52,157 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:52,159 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:52] "GET / HTTP/1.1" 500 - 1 0.000 0.004
+2024-09-12 05:59:52,475 11184 ERROR odoo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1783, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "E:\pycharm\custom\odoo\odoo\service\model.py", line 133, in retrying
+    result = func()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1795, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 2208, in __call__
+    response = request._serve_db()
+  File "E:\pycharm\custom\odoo\odoo\http.py", line 1787, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "E:\pycharm\custom\odoo\odoo\modules\registry.py", line 213, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2024-09-12 05:59:52,475 11184 INFO odoo werkzeug: 127.0.0.1 - - [12/Sep/2024 05:59:52] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.001
+2024-09-12 06:00:38,924 11184 ERROR odoo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2024-09-12 06:00:38,925 11184 WARNING odoo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database odoo. 
+2024-09-12 06:00:41,015 11184 ERROR odoo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2024-09-12 06:00:41,016 11184 WARNING odoo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database odoo. 
+2024-09-12 06:01:10,260 11184 INFO ? odoo.service.server: Initiating shutdown 
+2024-09-12 06:01:10,260 11184 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2024-09-12 06:01:10,412 11184 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 4 connections  
